@@ -87,8 +87,8 @@ const propiedadesVentas = [
 
 let html = "";
 
-for (let pVentas of propiedadesVentas) {
-  if (pVentas.smoke === true) {
+for (let ventaPorcion of propiedadesVentas) {
+  if (ventaPorcion.smoke === true) {
     fumarR = "Permitido fumar";
     fumarC = "text-success";
     FumarI = `"fas fa-smoking"`;
@@ -98,7 +98,7 @@ for (let pVentas of propiedadesVentas) {
     FumarI = `"fas fa-smoking-ban"`;
   }
 
-  if (pVentas.pets === true) {
+  if (ventaPorcion.pets === true) {
     petsR = "Mascotas permitidas";
     PetsC = "text-success";
     PetsI = `"fas fa-paw"`;
@@ -111,20 +111,20 @@ for (let pVentas of propiedadesVentas) {
   html += `
         <div class="col-md-4 mb-4">
             <div class="card">
-                <img src=${pVentas.src} class="card-img-top" alt="Imagen del departamento"/>
+                <img src=${ventaPorcion.src} class="card-img-top" alt="Imagen del departamento"/>
             </div>
             <div class="card-body">
-                <h5 class="card-title">${pVentas.nombre}</h5>
-                <p class="card-text">${pVentas.descripcion}</p>
+                <h5 class="card-title">${ventaPorcion.nombre}</h5>
+                <p class="card-text">${ventaPorcion.descripcion}</p>
                 <p>
-                    <i class="fas fa-map-marker-alt"></i> ${pVentas.ubicacion}
+                    <i class="fas fa-map-marker-alt"></i> ${ventaPorcion.ubicacion}
                 </p>
                 <p>
-                    <i class="fas fa-bed"></i> ${pVentas.habitaciones}
-                    <i class="fas fa-bath"></i> ${pVentas.banios}
+                    <i class="fas fa-bed"></i> ${ventaPorcion.habitaciones}
+                    <i class="fas fa-bath"></i> ${ventaPorcion.banios}
                 </p>
                 <p>
-                    <i class="fas fa-dollar-sign"></i> ${pVentas.costo}
+                    <i class="fas fa-dollar-sign"></i> ${ventaPorcion.costo}
                 </p>
                     <p class=${fumarC}>
                     <i class=${FumarI}></i> ${fumarR}
@@ -237,8 +237,8 @@ const propiedadesCompras = [
 
 let html2 = "";
 
-for (let pCompras of propiedadesCompras) {
-  if (pCompras.smoke === true) {
+for (let propiedadCompra of propiedadesCompras) {
+  if (propiedadCompra.smoke === true) {
     fumarR = "Permitido fumar";
     fumarC = "text-success";
     FumarI = `"fas fa-smoking"`;
@@ -248,7 +248,7 @@ for (let pCompras of propiedadesCompras) {
     FumarI = `"fas fa-smoking-ban"`;
   }
 
-  if (pCompras.pets === true) {
+  if (propiedadCompra.pets === true) {
     petsR = "Mascotas permitidas";
     PetsC = "text-success";
     PetsI = `"fas fa-paw"`;
@@ -261,20 +261,20 @@ for (let pCompras of propiedadesCompras) {
   html2 += `
         <div class="col-md-4 mb-4">
             <div class="card">
-                <img src=${pCompras.src} class="card-img-top" alt="Imagen del departamento"/>
+                <img src=${propiedadCompra.src} class="card-img-top" alt="Imagen del departamento"/>
             </div>
             <div class="card-body">
-                <h5 class="card-title">${pCompras.nombre}</h5>
-                <p class="card-text">${pCompras.descripcion}</p>
+                <h5 class="card-title">${propiedadCompra.nombre}</h5>
+                <p class="card-text">${propiedadCompra.descripcion}</p>
                 <p>
-                    <i class="fas fa-map-marker-alt"></i> ${pCompras.ubicacion}
+                    <i class="fas fa-map-marker-alt"></i> ${propiedadCompra.ubicacion}
                 </p>
                 <p>
-                    <i class="fas fa-bed"></i> ${pCompras.habitaciones}
-                    <i class="fas fa-bath"></i> ${pCompras.banios}
+                    <i class="fas fa-bed"></i> ${propiedadCompra.habitaciones}
+                    <i class="fas fa-bath"></i> ${propiedadCompra.banios}
                 </p>
                 <p>
-                    <i class="fas fa-dollar-sign"></i> ${pCompras.costo}
+                    <i class="fas fa-dollar-sign"></i> ${propiedadCompra.costo}
                 </p>
                     <p class=${fumarC}>
                     <i class=${FumarI}></i> ${fumarR}
@@ -299,11 +299,11 @@ validador2();
 
 // Pagina inicio ventas
 
-const ventasPorcion = propiedadesVentas.slice(0, 3);
+const ventasPorciones = propiedadesVentas.slice(0, 3);
 let htmlIndexVentas = "";
 
-for (let pVentas of ventasPorcion) {
-  if (pVentas.smoke === true) {
+for (let ventaPorcion of ventasPorciones) {
+  if (ventaPorcion.smoke === true) {
     fumarR = "Permitido fumar";
     fumarC = "text-success";
     FumarI = `"fas fa-smoking"`;
@@ -313,7 +313,7 @@ for (let pVentas of ventasPorcion) {
     FumarI = `"fas fa-smoking-ban"`;
   }
 
-  if (pVentas.pets === true) {
+  if (ventaPorcion.pets === true) {
     petsR = "Mascotas permitidas";
     PetsC = "text-success";
     PetsI = `"fas fa-paw"`;
@@ -326,20 +326,20 @@ for (let pVentas of ventasPorcion) {
   htmlIndexVentas += `
         <div class="col-md-4 mb-4">
             <div class="card">
-                <img src=${pVentas.src} class="card-img-top" alt="Imagen del departamento"/>
+                <img src=${ventaPorcion.src} class="card-img-top" alt="Imagen del departamento"/>
             </div>
             <div class="card-body">
-                <h5 class="card-title">${pVentas.nombre}</h5>
-                <p class="card-text">${pVentas.descripcion}</p>
+                <h5 class="card-title">${ventaPorcion.nombre}</h5>
+                <p class="card-text">${ventaPorcion.descripcion}</p>
                 <p>
-                    <i class="fas fa-map-marker-alt"></i> ${pVentas.ubicacion}
+                    <i class="fas fa-map-marker-alt"></i> ${ventaPorcion.ubicacion}
                 </p>
                 <p>
-                    <i class="fas fa-bed"></i> ${pVentas.habitaciones}
-                    <i class="fas fa-bath"></i> ${pVentas.banios}
+                    <i class="fas fa-bed"></i> ${ventaPorcion.habitaciones}
+                    <i class="fas fa-bath"></i> ${ventaPorcion.banios}
                 </p>
                 <p>
-                    <i class="fas fa-dollar-sign"></i> ${pVentas.costo}
+                    <i class="fas fa-dollar-sign"></i> ${ventaPorcion.costo}
                 </p>
                     <p class=${fumarC}>
                     <i class=${FumarI}></i> ${fumarR}
@@ -364,11 +364,11 @@ validadorIndexVentas();
 
 // Pagina inicio compras
 
-const comprasPorcion = propiedadesCompras.slice(0, 3);
+const compraPorciones = propiedadesCompras.slice(0, 3);
 let htmlIndexCompras = "";
 
-for (let pCompras of comprasPorcion) {
-  if (pCompras.smoke === true) {
+for (let propiedadCompra of compraPorciones) {
+  if (propiedadCompra.smoke === true) {
     fumarR = "Permitido fumar";
     fumarC = "text-success";
     FumarI = `"fas fa-smoking"`;
@@ -378,7 +378,7 @@ for (let pCompras of comprasPorcion) {
     FumarI = `"fas fa-smoking-ban"`;
   }
 
-  if (pCompras.pets === true) {
+  if (propiedadCompra.pets === true) {
     petsR = "Mascotas permitidas";
     PetsC = "text-success";
     PetsI = `"fas fa-paw"`;
@@ -391,20 +391,20 @@ for (let pCompras of comprasPorcion) {
   htmlIndexCompras += `
         <div class="col-md-4 mb-4">
             <div class="card">
-                <img src=${pCompras.src} class="card-img-top" alt="Imagen del departamento"/>
+                <img src=${propiedadCompra.src} class="card-img-top" alt="Imagen del departamento"/>
             </div>
             <div class="card-body">
-                <h5 class="card-title">${pCompras.nombre}</h5>
-                <p class="card-text">${pCompras.descripcion}</p>
+                <h5 class="card-title">${propiedadCompra.nombre}</h5>
+                <p class="card-text">${propiedadCompra.descripcion}</p>
                 <p>
-                    <i class="fas fa-map-marker-alt"></i> ${pCompras.ubicacion}
+                    <i class="fas fa-map-marker-alt"></i> ${propiedadCompra.ubicacion}
                 </p>
                 <p>
-                    <i class="fas fa-bed"></i> ${pCompras.habitaciones}
-                    <i class="fas fa-bath"></i> ${pCompras.banios}
+                    <i class="fas fa-bed"></i> ${propiedadCompra.habitaciones}
+                    <i class="fas fa-bath"></i> ${propiedadCompra.banios}
                 </p>
                 <p>
-                    <i class="fas fa-dollar-sign"></i> ${pCompras.costo}
+                    <i class="fas fa-dollar-sign"></i> ${propiedadCompra.costo}
                 </p>
                     <p class=${fumarC}>
                     <i class=${FumarI}></i> ${fumarR}
