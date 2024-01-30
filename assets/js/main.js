@@ -239,23 +239,23 @@ let html2 = "";
 
 for (let pCompras of propiedadesCompras) {
   if (pCompras.smoke === true) {
-    fumarA = "Permitido fumar";
-    fumarB = "text-success";
-    FumarC = `"fas fa-smoking"`;
+    fumarR = "Permitido fumar";
+    fumarC = "text-success";
+    FumarI = `"fas fa-smoking"`;
   } else {
-    fumarA = "No se permite fumar";
-    fumarB = "text-danger";
-    FumarC = `"fas fa-smoking-ban"`;
+    fumarR = "No se permite fumar";
+    fumarC = "text-danger";
+    FumarI = `"fas fa-smoking-ban"`;
   }
 
   if (pCompras.pets === true) {
-    petsA = "Mascotas permitidas";
-    PetsB = "text-success";
-    PetsC = `"fas fa-paw"`;
+    petsR = "Mascotas permitidas";
+    PetsC = "text-success";
+    PetsI = `"fas fa-paw"`;
   } else {
-    petsA = "No se permiten mascotas";
-    PetsB = "text-danger";
-    PetsC = `"fa-solid fa-ban"`;
+    petsR = "No se permiten mascotas";
+    PetsC = "text-danger";
+    PetsI = `"fa-solid fa-ban"`;
   }
 
   html2 += `
@@ -276,11 +276,11 @@ for (let pCompras of propiedadesCompras) {
                 <p>
                     <i class="fas fa-dollar-sign"></i> ${pCompras.costo}
                 </p>
-                    <p class=${fumarB}>
-                    <i class=${FumarC}></i> ${fumarA}
+                    <p class=${fumarC}>
+                    <i class=${FumarI}></i> ${fumarR}
                 </p>
-                <p class=${PetsB}>
-                    <i class=${PetsC}></i> ${petsA}
+                <p class=${PetsC}>
+                    <i class=${PetsI}></i> ${petsR}
                 </p>
             </div>
         </div>
@@ -304,23 +304,23 @@ let htmlIndexVentas = "";
 
 for (let pVentas of ventasPorcion) {
   if (pVentas.smoke === true) {
-    fumar1 = "Permitido fumar";
-    fumar2 = "text-success";
-    Fumar3 = `"fas fa-smoking"`;
+    fumarR = "Permitido fumar";
+    fumarC = "text-success";
+    FumarI = `"fas fa-smoking"`;
   } else {
-    fumar1 = "No se permite fumar";
-    fumar2 = "text-danger";
-    Fumar3 = `"fas fa-smoking-ban"`;
+    fumarR = "No se permite fumar";
+    fumarC = "text-danger";
+    FumarI = `"fas fa-smoking-ban"`;
   }
 
   if (pVentas.pets === true) {
-    pets1 = "Mascotas permitidas";
-    Pets2 = "text-success";
-    Pets3 = `"fas fa-paw"`;
+    petsR = "Mascotas permitidas";
+    PetsC = "text-success";
+    PetsI = `"fas fa-paw"`;
   } else {
-    pets1 = "No se permiten mascotas";
-    Pets2 = "text-danger";
-    Pets3 = `"fa-solid fa-ban"`;
+    petsR = "No se permiten mascotas";
+    PetsC = "text-danger";
+    PetsI = `"fa-solid fa-ban"`;
   }
 
   htmlIndexVentas += `
@@ -341,18 +341,18 @@ for (let pVentas of ventasPorcion) {
                 <p>
                     <i class="fas fa-dollar-sign"></i> ${pVentas.costo}
                 </p>
-                    <p class=${fumar2}>
-                    <i class=${Fumar3}></i> ${fumar1}
+                    <p class=${fumarC}>
+                    <i class=${FumarI}></i> ${fumarR}
                 </p>
-                <p class=${Pets2}>
-                    <i class=${Pets3}></i> ${pets1}
+                <p class=${PetsC}>
+                    <i class=${PetsI}></i> ${petsR}
                 </p>
             </div>
         </div>
 `;
 }
 
-const validadorIndex = () => {
+const validadorIndexVentas = () => {
   const elementoVentasIndex = document.querySelector("#row_venta_index");
   if (!elementoVentasIndex) {
   } else {
@@ -360,7 +360,7 @@ const validadorIndex = () => {
   }
 };
 
-validadorIndex();
+validadorIndexVentas();
 
 // Pagina inicio compras
 
@@ -369,23 +369,23 @@ let htmlIndexCompras = "";
 
 for (let pCompras of comprasPorcion) {
   if (pCompras.smoke === true) {
-    fumar1 = "Permitido fumar";
-    fumar2 = "text-success";
-    Fumar3 = `"fas fa-smoking"`;
+    fumarR = "Permitido fumar";
+    fumarC = "text-success";
+    FumarI = `"fas fa-smoking"`;
   } else {
-    fumar1 = "No se permite fumar";
-    fumar2 = "text-danger";
-    Fumar3 = `"fas fa-smoking-ban"`;
+    fumarR = "No se permite fumar";
+    fumarC = "text-danger";
+    FumarI = `"fas fa-smoking-ban"`;
   }
 
   if (pCompras.pets === true) {
-    pets1 = "Mascotas permitidas";
-    Pets2 = "text-success";
-    Pets3 = `"fas fa-paw"`;
+    petsR = "Mascotas permitidas";
+    PetsC = "text-success";
+    PetsI = `"fas fa-paw"`;
   } else {
-    pets1 = "No se permiten mascotas";
-    Pets2 = "text-danger";
-    Pets3 = `"fa-solid fa-ban"`;
+    petsR = "No se permiten mascotas";
+    PetsC = "text-danger";
+    PetsI = `"fa-solid fa-ban"`;
   }
 
   htmlIndexCompras += `
@@ -406,11 +406,11 @@ for (let pCompras of comprasPorcion) {
                 <p>
                     <i class="fas fa-dollar-sign"></i> ${pCompras.costo}
                 </p>
-                    <p class=${fumar2}>
-                    <i class=${Fumar3}></i> ${fumar1}
+                    <p class=${fumarC}>
+                    <i class=${FumarI}></i> ${fumarR}
                 </p>
-                <p class=${Pets2}>
-                    <i class=${Pets3}></i> ${pets1}
+                <p class=${PetsC}>
+                    <i class=${PetsI}></i> ${petsR}
                 </p>
             </div>
         </div>
