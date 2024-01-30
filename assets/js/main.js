@@ -296,3 +296,134 @@ const validador2 = () => {
 };
 
 validador2();
+
+// Pagina inicio ventas
+
+const ventasPorcion = propiedadesVentas.slice(0, 3);
+let htmlIndexVentas = "";
+
+for (let pVentas of ventasPorcion) {
+  if (pVentas.smoke === true) {
+    fumar1 = "Permitido fumar";
+    fumar2 = "text-success";
+    Fumar3 = `"fas fa-smoking"`;
+  } else {
+    fumar1 = "No se permite fumar";
+    fumar2 = "text-danger";
+    Fumar3 = `"fas fa-smoking-ban"`;
+  }
+
+  if (pVentas.pets === true) {
+    pets1 = "Mascotas permitidas";
+    Pets2 = "text-success";
+    Pets3 = `"fas fa-paw"`;
+  } else {
+    pets1 = "No se permiten mascotas";
+    Pets2 = "text-danger";
+    Pets3 = `"fa-solid fa-ban"`;
+  }
+
+  htmlIndexVentas += `
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src=${pVentas.src} class="card-img-top" alt="Imagen del departamento"/>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">${pVentas.nombre}</h5>
+                <p class="card-text">${pVentas.descripcion}</p>
+                <p>
+                    <i class="fas fa-map-marker-alt"></i> ${pVentas.ubicacion}
+                </p>
+                <p>
+                    <i class="fas fa-bed"></i> ${pVentas.habitaciones}
+                    <i class="fas fa-bath"></i> ${pVentas.banios}
+                </p>
+                <p>
+                    <i class="fas fa-dollar-sign"></i> ${pVentas.costo}
+                </p>
+                    <p class=${fumar2}>
+                    <i class=${Fumar3}></i> ${fumar1}
+                </p>
+                <p class=${Pets2}>
+                    <i class=${Pets3}></i> ${pets1}
+                </p>
+            </div>
+        </div>
+`;
+}
+
+const validadorIndex = () => {
+  const elementoVentasIndex = document.querySelector("#row_venta_index");
+  if (!elementoVentasIndex) {
+  } else {
+    elementoVentasIndex.innerHTML = htmlIndexVentas;
+  }
+};
+
+validadorIndex();
+
+// Pagina inicio compras
+
+const comprasPorcion = propiedadesCompras.slice(0, 3);
+let htmlIndexCompras = "";
+
+for (let pCompras of comprasPorcion) {
+  if (pCompras.smoke === true) {
+    fumar1 = "Permitido fumar";
+    fumar2 = "text-success";
+    Fumar3 = `"fas fa-smoking"`;
+  } else {
+    fumar1 = "No se permite fumar";
+    fumar2 = "text-danger";
+    Fumar3 = `"fas fa-smoking-ban"`;
+  }
+
+  if (pCompras.pets === true) {
+    pets1 = "Mascotas permitidas";
+    Pets2 = "text-success";
+    Pets3 = `"fas fa-paw"`;
+  } else {
+    pets1 = "No se permiten mascotas";
+    Pets2 = "text-danger";
+    Pets3 = `"fa-solid fa-ban"`;
+  }
+
+  htmlIndexCompras += `
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src=${pCompras.src} class="card-img-top" alt="Imagen del departamento"/>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">${pCompras.nombre}</h5>
+                <p class="card-text">${pCompras.descripcion}</p>
+                <p>
+                    <i class="fas fa-map-marker-alt"></i> ${pCompras.ubicacion}
+                </p>
+                <p>
+                    <i class="fas fa-bed"></i> ${pCompras.habitaciones}
+                    <i class="fas fa-bath"></i> ${pCompras.banios}
+                </p>
+                <p>
+                    <i class="fas fa-dollar-sign"></i> ${pCompras.costo}
+                </p>
+                    <p class=${fumar2}>
+                    <i class=${Fumar3}></i> ${fumar1}
+                </p>
+                <p class=${Pets2}>
+                    <i class=${Pets3}></i> ${pets1}
+                </p>
+            </div>
+        </div>
+`;
+}
+
+const validadorIndexCompras = () => {
+  const elementoVentasIndexCompras =
+    document.querySelector("#alquileres_index");
+  if (!elementoVentasIndexCompras) {
+  } else {
+    elementoVentasIndexCompras.innerHTML = htmlIndexCompras;
+  }
+};
+
+validadorIndexCompras();
