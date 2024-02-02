@@ -85,10 +85,12 @@ const propiedadesVentas = [
   },
 ];
 
-let html = "";
+let htmlVentas = "";
 
-for (let ventaPorcion of propiedadesVentas) {
-  if (ventaPorcion.smoke === true) {
+let fumarR, fumarC, FumarI, petsR, PetsC, PetsI;
+
+for (let propiedadVenta of propiedadesVentas) {
+  if (propiedadVenta.smoke === true) {
     fumarR = "Permitido fumar";
     fumarC = "text-success";
     FumarI = `"fas fa-smoking"`;
@@ -98,7 +100,7 @@ for (let ventaPorcion of propiedadesVentas) {
     FumarI = `"fas fa-smoking-ban"`;
   }
 
-  if (ventaPorcion.pets === true) {
+  if (propiedadVenta.pets === true) {
     petsR = "Mascotas permitidas";
     PetsC = "text-success";
     PetsI = `"fas fa-paw"`;
@@ -108,23 +110,23 @@ for (let ventaPorcion of propiedadesVentas) {
     PetsI = `"fa-solid fa-ban"`;
   }
 
-  html += `
+  htmlVentas += `
         <div class="col-md-4 mb-4">
             <div class="card">
-                <img src=${ventaPorcion.src} class="card-img-top" alt="Imagen del departamento"/>
+                <img src=${propiedadVenta.src} class="card-img-top" alt="Imagen del departamento"/>
             </div>
             <div class="card-body">
-                <h5 class="card-title">${ventaPorcion.nombre}</h5>
-                <p class="card-text">${ventaPorcion.descripcion}</p>
+                <h5 class="card-title">${propiedadVenta.nombre}</h5>
+                <p class="card-text">${propiedadVenta.descripcion}</p>
                 <p>
-                    <i class="fas fa-map-marker-alt"></i> ${ventaPorcion.ubicacion}
+                    <i class="fas fa-map-marker-alt"></i> ${propiedadVenta.ubicacion}
                 </p>
                 <p>
-                    <i class="fas fa-bed"></i> ${ventaPorcion.habitaciones}
-                    <i class="fas fa-bath"></i> ${ventaPorcion.banios}
+                    <i class="fas fa-bed"></i> ${propiedadVenta.habitaciones}
+                    <i class="fas fa-bath"></i> ${propiedadVenta.banios}
                 </p>
                 <p>
-                    <i class="fas fa-dollar-sign"></i> ${ventaPorcion.costo}
+                    <i class="fas fa-dollar-sign"></i> ${propiedadVenta.costo}
                 </p>
                     <p class=${fumarC}>
                     <i class=${FumarI}></i> ${fumarR}
@@ -137,19 +139,9 @@ for (let ventaPorcion of propiedadesVentas) {
 `;
 }
 
-const validador = () => {
-  const elementoVentas = document.querySelector("#row_venta");
-  if (!elementoVentas) {
-  } else {
-    elementoVentas.innerHTML = html;
-  }
-};
-
-validador();
-
 // Propiedades en alquiler
 
-const propiedadesCompras = [
+const propiedadesAlquileres = [
   {
     nombre: "Apartamento en el centro de la ciudad",
     src: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YXBhcnRtZW50fGVufDB8MHwwfHx8MA%3D%3D&auto=format&fit=crop&w=700&q=60",
@@ -235,10 +227,10 @@ const propiedadesCompras = [
   },
 ];
 
-let html2 = "";
+let htmlAlquiler = "";
 
-for (let propiedadCompra of propiedadesCompras) {
-  if (propiedadCompra.smoke === true) {
+for (let propiedadAlquiler of propiedadesAlquileres) {
+  if (propiedadAlquiler.smoke === true) {
     fumarR = "Permitido fumar";
     fumarC = "text-success";
     FumarI = `"fas fa-smoking"`;
@@ -248,7 +240,7 @@ for (let propiedadCompra of propiedadesCompras) {
     FumarI = `"fas fa-smoking-ban"`;
   }
 
-  if (propiedadCompra.pets === true) {
+  if (propiedadAlquiler.pets === true) {
     petsR = "Mascotas permitidas";
     PetsC = "text-success";
     PetsI = `"fas fa-paw"`;
@@ -258,23 +250,23 @@ for (let propiedadCompra of propiedadesCompras) {
     PetsI = `"fa-solid fa-ban"`;
   }
 
-  html2 += `
+  htmlAlquiler += `
         <div class="col-md-4 mb-4">
             <div class="card">
-                <img src=${propiedadCompra.src} class="card-img-top" alt="Imagen del departamento"/>
+                <img src=${propiedadAlquiler.src} class="card-img-top" alt="Imagen del departamento"/>
             </div>
             <div class="card-body">
-                <h5 class="card-title">${propiedadCompra.nombre}</h5>
-                <p class="card-text">${propiedadCompra.descripcion}</p>
+                <h5 class="card-title">${propiedadAlquiler.nombre}</h5>
+                <p class="card-text">${propiedadAlquiler.descripcion}</p>
                 <p>
-                    <i class="fas fa-map-marker-alt"></i> ${propiedadCompra.ubicacion}
+                    <i class="fas fa-map-marker-alt"></i> ${propiedadAlquiler.ubicacion}
                 </p>
                 <p>
-                    <i class="fas fa-bed"></i> ${propiedadCompra.habitaciones}
-                    <i class="fas fa-bath"></i> ${propiedadCompra.banios}
+                    <i class="fas fa-bed"></i> ${propiedadAlquiler.habitaciones}
+                    <i class="fas fa-bath"></i> ${propiedadAlquiler.banios}
                 </p>
                 <p>
-                    <i class="fas fa-dollar-sign"></i> ${propiedadCompra.costo}
+                    <i class="fas fa-dollar-sign"></i> ${propiedadAlquiler.costo}
                 </p>
                     <p class=${fumarC}>
                     <i class=${FumarI}></i> ${fumarR}
@@ -286,16 +278,6 @@ for (let propiedadCompra of propiedadesCompras) {
         </div>
 `;
 }
-
-const validador2 = () => {
-  const elementoAlquiler = document.querySelector("#alquileres");
-  if (!elementoAlquiler) {
-  } else {
-    elementoAlquiler.innerHTML = html2;
-  }
-};
-
-validador2();
 
 // Pagina inicio ventas
 
@@ -352,23 +334,13 @@ for (let ventaPorcion of ventasPorciones) {
 `;
 }
 
-const validadorIndexVentas = () => {
-  const elementoVentasIndex = document.querySelector("#row_venta_index");
-  if (!elementoVentasIndex) {
-  } else {
-    elementoVentasIndex.innerHTML = htmlIndexVentas;
-  }
-};
+// Pagina inicio Alquiler
 
-validadorIndexVentas();
+const AlquilerPorciones = propiedadesAlquileres.slice(0, 3);
+let htmlIndexAlquileres = "";
 
-// Pagina inicio compras
-
-const compraPorciones = propiedadesCompras.slice(0, 3);
-let htmlIndexCompras = "";
-
-for (let propiedadCompra of compraPorciones) {
-  if (propiedadCompra.smoke === true) {
+for (let propiedadAlquiler of AlquilerPorciones) {
+  if (propiedadAlquiler.smoke === true) {
     fumarR = "Permitido fumar";
     fumarC = "text-success";
     FumarI = `"fas fa-smoking"`;
@@ -378,7 +350,7 @@ for (let propiedadCompra of compraPorciones) {
     FumarI = `"fas fa-smoking-ban"`;
   }
 
-  if (propiedadCompra.pets === true) {
+  if (propiedadAlquiler.pets === true) {
     petsR = "Mascotas permitidas";
     PetsC = "text-success";
     PetsI = `"fas fa-paw"`;
@@ -388,23 +360,23 @@ for (let propiedadCompra of compraPorciones) {
     PetsI = `"fa-solid fa-ban"`;
   }
 
-  htmlIndexCompras += `
+  htmlIndexAlquileres += `
         <div class="col-md-4 mb-4">
             <div class="card">
-                <img src=${propiedadCompra.src} class="card-img-top" alt="Imagen del departamento"/>
+                <img src=${propiedadAlquiler.src} class="card-img-top" alt="Imagen del departamento"/>
             </div>
             <div class="card-body">
-                <h5 class="card-title">${propiedadCompra.nombre}</h5>
-                <p class="card-text">${propiedadCompra.descripcion}</p>
+                <h5 class="card-title">${propiedadAlquiler.nombre}</h5>
+                <p class="card-text">${propiedadAlquiler.descripcion}</p>
                 <p>
-                    <i class="fas fa-map-marker-alt"></i> ${propiedadCompra.ubicacion}
+                    <i class="fas fa-map-marker-alt"></i> ${propiedadAlquiler.ubicacion}
                 </p>
                 <p>
-                    <i class="fas fa-bed"></i> ${propiedadCompra.habitaciones}
-                    <i class="fas fa-bath"></i> ${propiedadCompra.banios}
+                    <i class="fas fa-bed"></i> ${propiedadAlquiler.habitaciones}
+                    <i class="fas fa-bath"></i> ${propiedadAlquiler.banios}
                 </p>
                 <p>
-                    <i class="fas fa-dollar-sign"></i> ${propiedadCompra.costo}
+                    <i class="fas fa-dollar-sign"></i> ${propiedadAlquiler.costo}
                 </p>
                     <p class=${fumarC}>
                     <i class=${FumarI}></i> ${fumarR}
@@ -417,13 +389,14 @@ for (let propiedadCompra of compraPorciones) {
 `;
 }
 
-const validadorIndexCompras = () => {
-  const elementoVentasIndexCompras =
-    document.querySelector("#alquileres_index");
-  if (!elementoVentasIndexCompras) {
-  } else {
-    elementoVentasIndexCompras.innerHTML = htmlIndexCompras;
+const AgregarContenidoHTML = (id, html) => {
+  const contenidoHtml = document.querySelector(id);
+  if (contenidoHtml) {
+    contenidoHtml.innerHTML = html;
   }
 };
 
-validadorIndexCompras();
+AgregarContenidoHTML("#row_venta", htmlVentas);
+AgregarContenidoHTML("#alquileres", htmlAlquiler);
+AgregarContenidoHTML("#row_venta_index", htmlIndexVentas);
+AgregarContenidoHTML("#alquileres_index", htmlIndexAlquileres);
