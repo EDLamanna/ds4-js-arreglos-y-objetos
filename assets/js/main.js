@@ -85,60 +85,6 @@ const propiedadesVentas = [
   },
 ];
 
-let htmlVentas = "";
-
-let fumarR, fumarC, FumarI, petsR, PetsC, PetsI;
-
-for (let propiedadVenta of propiedadesVentas) {
-  if (propiedadVenta.smoke === true) {
-    fumarR = "Permitido fumar";
-    fumarC = "text-success";
-    FumarI = `"fas fa-smoking"`;
-  } else {
-    fumarR = "No se permite fumar";
-    fumarC = "text-danger";
-    FumarI = `"fas fa-smoking-ban"`;
-  }
-
-  if (propiedadVenta.pets === true) {
-    petsR = "Mascotas permitidas";
-    PetsC = "text-success";
-    PetsI = `"fas fa-paw"`;
-  } else {
-    petsR = "No se permiten mascotas";
-    PetsC = "text-danger";
-    PetsI = `"fa-solid fa-ban"`;
-  }
-
-  htmlVentas += `
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src=${propiedadVenta.src} class="card-img-top" alt="Imagen del departamento"/>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">${propiedadVenta.nombre}</h5>
-                <p class="card-text">${propiedadVenta.descripcion}</p>
-                <p>
-                    <i class="fas fa-map-marker-alt"></i> ${propiedadVenta.ubicacion}
-                </p>
-                <p>
-                    <i class="fas fa-bed"></i> ${propiedadVenta.habitaciones}
-                    <i class="fas fa-bath"></i> ${propiedadVenta.banios}
-                </p>
-                <p>
-                    <i class="fas fa-dollar-sign"></i> ${propiedadVenta.costo}
-                </p>
-                    <p class=${fumarC}>
-                    <i class=${FumarI}></i> ${fumarR}
-                </p>
-                <p class=${PetsC}>
-                    <i class=${PetsI}></i> ${petsR}
-                </p>
-            </div>
-        </div>
-`;
-}
-
 // Propiedades en alquiler
 
 const propiedadesAlquileres = [
@@ -227,176 +173,90 @@ const propiedadesAlquileres = [
   },
 ];
 
-let htmlAlquiler = "";
+// Función para generar el HTML de propiedades
 
-for (let propiedadAlquiler of propiedadesAlquileres) {
-  if (propiedadAlquiler.smoke === true) {
-    fumarR = "Permitido fumar";
-    fumarC = "text-success";
-    FumarI = `"fas fa-smoking"`;
-  } else {
-    fumarR = "No se permite fumar";
-    fumarC = "text-danger";
-    FumarI = `"fas fa-smoking-ban"`;
+const generarHTMLPropiedades = (propiedades) => {
+  let html = "";
+
+  for (let propiedad of propiedades) {
+    const { smoke, pets } = propiedad;
+    let smokeR, smokeC, smokeI, petsR, PetsC, PetsI;
+
+    if (smoke === true) {
+      smokeR = "Permitido fumar";
+      smokeC = "text-success";
+      smokeI = "fas fa-smoking";
+    } else {
+      smokeR = "No se permite fumar";
+      smokeC = "text-danger";
+      smokeI = "fas fa-smoking-ban";
+    }
+
+    if (pets === true) {
+      petsR = "Mascotas permitidas";
+      PetsC = "text-success";
+      PetsI = "fas fa-paw";
+    } else {
+      petsR = "No se permiten mascotas";
+      PetsC = "text-danger";
+      PetsI = "fa-solid fa-ban";
+    }
+
+    html += `
+      <div class="col-md-4 mb-4">
+          <div class="card">
+              <img src=${propiedad.src} class="card-img-top" alt="Imagen del departamento"/>
+          </div>
+          <div class="card-body">
+              <h5 class="card-title">${propiedad.nombre}</h5>
+              <p class="card-text">${propiedad.descripcion}</p>
+              <p>
+                  <i class="fas fa-map-marker-alt"></i> ${propiedad.ubicacion}
+              </p>
+              <p>
+                  <i class="fas fa-bed"></i> ${propiedad.habitaciones}
+                  <i class="fas fa-bath"></i> ${propiedad.banios}
+              </p>
+              <p>
+                  <i class="fas fa-dollar-sign"></i> ${propiedad.costo}
+              </p>
+              <p class=${smokeC}>
+                  <i class=${smokeI}></i> ${smokeR}
+              </p>
+              <p class=${PetsC}>
+                  <i class=${PetsI}></i> ${petsR}
+              </p>
+          </div>
+      </div>
+    `;
   }
 
-  if (propiedadAlquiler.pets === true) {
-    petsR = "Mascotas permitidas";
-    PetsC = "text-success";
-    PetsI = `"fas fa-paw"`;
-  } else {
-    petsR = "No se permiten mascotas";
-    PetsC = "text-danger";
-    PetsI = `"fa-solid fa-ban"`;
-  }
+  return html;
+};
 
-  htmlAlquiler += `
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src=${propiedadAlquiler.src} class="card-img-top" alt="Imagen del departamento"/>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">${propiedadAlquiler.nombre}</h5>
-                <p class="card-text">${propiedadAlquiler.descripcion}</p>
-                <p>
-                    <i class="fas fa-map-marker-alt"></i> ${propiedadAlquiler.ubicacion}
-                </p>
-                <p>
-                    <i class="fas fa-bed"></i> ${propiedadAlquiler.habitaciones}
-                    <i class="fas fa-bath"></i> ${propiedadAlquiler.banios}
-                </p>
-                <p>
-                    <i class="fas fa-dollar-sign"></i> ${propiedadAlquiler.costo}
-                </p>
-                    <p class=${fumarC}>
-                    <i class=${FumarI}></i> ${fumarR}
-                </p>
-                <p class=${PetsC}>
-                    <i class=${PetsI}></i> ${petsR}
-                </p>
-            </div>
-        </div>
-`;
-}
+// Función para agregar contenido HTML al DOM
 
-// Pagina inicio ventas
-
-const ventasPorciones = propiedadesVentas.slice(0, 3);
-let htmlIndexVentas = "";
-
-for (let ventaPorcion of ventasPorciones) {
-  if (ventaPorcion.smoke === true) {
-    fumarR = "Permitido fumar";
-    fumarC = "text-success";
-    FumarI = `"fas fa-smoking"`;
-  } else {
-    fumarR = "No se permite fumar";
-    fumarC = "text-danger";
-    FumarI = `"fas fa-smoking-ban"`;
-  }
-
-  if (ventaPorcion.pets === true) {
-    petsR = "Mascotas permitidas";
-    PetsC = "text-success";
-    PetsI = `"fas fa-paw"`;
-  } else {
-    petsR = "No se permiten mascotas";
-    PetsC = "text-danger";
-    PetsI = `"fa-solid fa-ban"`;
-  }
-
-  htmlIndexVentas += `
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src=${ventaPorcion.src} class="card-img-top" alt="Imagen del departamento"/>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">${ventaPorcion.nombre}</h5>
-                <p class="card-text">${ventaPorcion.descripcion}</p>
-                <p>
-                    <i class="fas fa-map-marker-alt"></i> ${ventaPorcion.ubicacion}
-                </p>
-                <p>
-                    <i class="fas fa-bed"></i> ${ventaPorcion.habitaciones}
-                    <i class="fas fa-bath"></i> ${ventaPorcion.banios}
-                </p>
-                <p>
-                    <i class="fas fa-dollar-sign"></i> ${ventaPorcion.costo}
-                </p>
-                    <p class=${fumarC}>
-                    <i class=${FumarI}></i> ${fumarR}
-                </p>
-                <p class=${PetsC}>
-                    <i class=${PetsI}></i> ${petsR}
-                </p>
-            </div>
-        </div>
-`;
-}
-
-// Pagina inicio Alquiler
-
-const AlquilerPorciones = propiedadesAlquileres.slice(0, 3);
-let htmlIndexAlquileres = "";
-
-for (let propiedadAlquiler of AlquilerPorciones) {
-  if (propiedadAlquiler.smoke === true) {
-    fumarR = "Permitido fumar";
-    fumarC = "text-success";
-    FumarI = `"fas fa-smoking"`;
-  } else {
-    fumarR = "No se permite fumar";
-    fumarC = "text-danger";
-    FumarI = `"fas fa-smoking-ban"`;
-  }
-
-  if (propiedadAlquiler.pets === true) {
-    petsR = "Mascotas permitidas";
-    PetsC = "text-success";
-    PetsI = `"fas fa-paw"`;
-  } else {
-    petsR = "No se permiten mascotas";
-    PetsC = "text-danger";
-    PetsI = `"fa-solid fa-ban"`;
-  }
-
-  htmlIndexAlquileres += `
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src=${propiedadAlquiler.src} class="card-img-top" alt="Imagen del departamento"/>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">${propiedadAlquiler.nombre}</h5>
-                <p class="card-text">${propiedadAlquiler.descripcion}</p>
-                <p>
-                    <i class="fas fa-map-marker-alt"></i> ${propiedadAlquiler.ubicacion}
-                </p>
-                <p>
-                    <i class="fas fa-bed"></i> ${propiedadAlquiler.habitaciones}
-                    <i class="fas fa-bath"></i> ${propiedadAlquiler.banios}
-                </p>
-                <p>
-                    <i class="fas fa-dollar-sign"></i> ${propiedadAlquiler.costo}
-                </p>
-                    <p class=${fumarC}>
-                    <i class=${FumarI}></i> ${fumarR}
-                </p>
-                <p class=${PetsC}>
-                    <i class=${PetsI}></i> ${petsR}
-                </p>
-            </div>
-        </div>
-`;
-}
-
-const AgregarContenidoHTML = (id, html) => {
+function agregarContenidoHTML(id, html) {
   const contenidoHtml = document.querySelector(id);
   if (contenidoHtml) {
     contenidoHtml.innerHTML = html;
   }
-};
+}
 
-AgregarContenidoHTML("#row_venta", htmlVentas);
-AgregarContenidoHTML("#alquileres", htmlAlquiler);
-AgregarContenidoHTML("#row_venta_index", htmlIndexVentas);
-AgregarContenidoHTML("#alquileres_index", htmlIndexAlquileres);
+// Propiedades en venta en Index
+const ventasPorciones = propiedadesVentas.slice(0, 3);
+const htmlIndexVentas = generarHTMLPropiedades(ventasPorciones);
+
+// Mostrar propiedades en alquiler en Index
+const alquilerPorciones = propiedadesAlquileres.slice(0, 3);
+const htmlIndexAlquileres = generarHTMLPropiedades(alquilerPorciones);
+
+// Mostrar todas las propiedades en pagina de ventas y alquileres
+const htmlVentas = generarHTMLPropiedades(propiedadesVentas);
+const htmlAlquiler = generarHTMLPropiedades(propiedadesAlquileres);
+
+// Agregar contenido al DOM
+agregarContenidoHTML("#row_venta_index", htmlIndexVentas);
+agregarContenidoHTML("#alquileres_index", htmlIndexAlquileres);
+agregarContenidoHTML("#row_venta", htmlVentas);
+agregarContenidoHTML("#alquileres", htmlAlquiler);
